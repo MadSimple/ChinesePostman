@@ -12,7 +12,7 @@ void main() {
   
   // Repeating entries in the graph will not add duplicate edges. 
   // If the original graph contains duplicate edges,
-  // add new vertices with a distance of 0 from other vertices
+  // add new vertices with a distance of 0 from other vertices.
   
   Map<int, Map<int, double>> graph = {
     1: {2: 6, 5: 10, 4: 10, 3: 10},
@@ -42,9 +42,6 @@ total cost: 123.0
 ```
 The start/end vertex is 2. 
 
-Repeating entries in the graph will not add duplicate edges. You can add new vertices with a
-distance of 0 from other vertices if the original graph contains duplicate edges.
-
 The list above shows the path to traverse each edge and return to vertex 2.
 
 Some edges in the solution are duplicated. This is unavoidable. A more detailed explanation of how to solve the problem is below.
@@ -60,7 +57,7 @@ The first thing to do is count how many edges meet at each vertex (called the "d
 
 If the degree is odd, the vertex is called an "odd vertex."
 
-If there are no odd vertices, then there is an optimal solution where no edges are repeated. This is called an "eulerian" path.
+If there are no odd vertices, there is an optimal solution where no edges are repeated. This is called an "eulerian" path.
 
 In a connected graph, there will always be an even number of odd vertices.
 
