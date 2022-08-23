@@ -32,7 +32,7 @@ This outputs the following:
 [2, 5, 7, 5, 4, 1, 3, 4, 6, 3, 6, 7, 2, 5, 1, 2]
 total cost: 123.0
 ```
-The start/end vertex is 2.
+The start/end vertex is 2. Repeating entries in the graph will not add duplicate edges. 
 
 The list above shows the path to traverse each edge and return to vertex 2.
 
@@ -95,6 +95,6 @@ So we choose the third option. We will need to repeat the edges that
 give the shortest path between 2 and 7 (repeat 2 to 5 and 5 to 7), and
 repeat 6 to 3.
 
-The duplicate edges now make the graph eulerian. The order of each edge traveled is in red.
+The duplicate edges now make the graph eulerian. The order in which to travel the edges is in red.
 
 ![eulerian.png](eulerian.png)
