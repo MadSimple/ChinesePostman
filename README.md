@@ -39,6 +39,7 @@ The list above shows the path to traverse each edge and return to vertex 2.
 Some edges are repeated. This is unavoidable. A more detailed explanation of how to solve the problem is below:
 ## Chinese Postman Problem
 Firstly, the graph must be connected (there should be a path between any 2 vertices).
+
 ![disconnected.png](disconnected.png)
 
 
