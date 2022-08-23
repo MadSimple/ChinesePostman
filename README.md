@@ -18,5 +18,7 @@ Postman p = Postman();
   List<int> tour = p.postmanTour(graph, startingVertex: 2);
   print(tour);
   print('total cost: ${p.cost()}');
-
+//output:
+//[2, 5, 7, 5, 4, 1, 3, 4, 6, 3, 6, 7, 2, 5, 1, 2]
+// total cost: 123.0
 ```
