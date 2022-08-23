@@ -1,2 +1,9 @@
-# ChinesePostman
-Dart package to solve Chinese Postman Problem
+Solver for the Chinese Postman Problem for undirected graphs
+
+
+![img.png](img.png)
+
+```dart
+
+
+```
