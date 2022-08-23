@@ -1,4 +1,4 @@
-# Dart package to solve the Chinese Postman Problem for undirected graphs:
+# Dart package to solve the Chinese Postman Problem for undirected, weighted graphs:
 #### How to travel through each edge and return to the start in the shortest way possible
 ![img.png](img.png)
 
@@ -45,4 +45,56 @@ Firstly, the graph must be connected (there should be a path between any 2 verti
 ![connected.png](connected.png)
 
 
-The first thing to do is count how many edges meet at each vertex. If this number of edges is odd, the vertex is called an odd vertex.
+The first thing to do is count how many edges meet at each vertex (called the "degree" of the vertex).
+
+If the degree is odd, the vertex is called an "odd vertex."
+
+If there are no odd vertices, then there is an optimal solution where no edges are repeated. This is called an "eulerian" path.
+
+In a connected graph, there will always be an even number of odd vertices.
+
+For the connected example above, the odd vertices are 2, 3, 6, and 7. We have to arrange these into pairs to minimize the distance traveled. This will then tell us which edges will need to be repeated.
+
+There are only 3 matchings: 
+
+1 - [2,3],[6,7]
+
+2 - [2,6],[7,3]
+
+3 - [2,7],[6,3]
+
+but for more vertices, the number grows substantially. (For 16 odd vertices, there would be over 2 million.) 
+Thus we need a more efficient algorithm to find the optimal matchings.
+This package uses the Edmonds blossom algorithm. 
+
+[The Dart code was translated from repositories by 
+[simlu](https://github.com/simlu/EdmondsBlossom) and
+[mattkrick](https://github.com/mattkrick/EdmondsBlossom), which
+were based on [this](http://jorisvr.nl/maximummatching.html)
+Python implementation. Code was altered to find a mininum-cost instead of maximum-cost matching.]
+
+
+Note: For a weighted graph like above, the length of each edge does not correspond to the length
+of line drawn, so the shortest path between 2 odd vertices may not be a straight line. 
+
+For example, the shortest distance between vertices 2 and 7 is not
+the straight line with length 16, but to go from vertex 2 to 5 to 7, which is 14.
+
+[This package uses the [dijkstra](https://pub.dev/packages/dijkstra) 
+package to find the shortest distance between each pair of odd vertices.]
+
+The total distance, or cost, between each pair of odd vertices is: 
+
+[2,3],[6,7] = 16 + 13 = 29
+
+[2,6],[7,3] = 13 + 18 = 31
+
+[2,7],[6,3] = 14 + 7 = 21
+
+So we choose the third option. We will need to repeat the edges that
+give the shortest path between 2 and 7 (repeat 2 to 5 and 5 to 7), and
+repeat 6 to 3.
+
+The duplicate edges now make the graph eulerian. The order of each edge traveled is in red.
+
+![eulerian.png](eulerian.png)
