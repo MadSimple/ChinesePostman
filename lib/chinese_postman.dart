@@ -2,7 +2,7 @@ library chinese_postman;
 
 
 import 'package:dijkstra/dijkstra.dart';
-import 'dart:core'; //bool, some operations on numbers, arrays
+import 'dart:core';
 import 'dart:math' as math;
 
 const int maxInt = 9999999999999999;
