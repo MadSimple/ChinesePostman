@@ -42,5 +42,7 @@ Firstly, the graph must be connected (there should be a path between any 2 verti
 
 ![disconnected.png](disconnected.png)
 
+![connected.png](connected.png)
+
 
 The first thing to do is count how many edges meet at each vertex. If this number of edges is odd, the vertex is called an odd vertex.
