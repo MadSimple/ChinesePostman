@@ -4,6 +4,7 @@
 
 ![img.png](img.png)
 
+Add ```chinese_postman: ^0.1.0``` to pubspec.yaml
 ```dart
 import 'package:chinese_postman/chinese_postman.dart';
 
