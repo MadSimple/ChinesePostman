@@ -38,10 +38,8 @@ void main() {
 This outputs the following:
 
 ```dart
-[2, 5, 7, 5, 4, 1, 3, 4, 6, 3, 6, 7, 2, 5, 1, 2
-]total cost
-:
-123.0
+[2, 5, 7, 5, 4, 1, 3, 4, 6, 3, 6, 7, 2, 5, 1, 2]
+total cost: 123.0
 ```
 
 The start/end vertex is 2.
@@ -82,7 +80,7 @@ There are only 3 matchings:
 3 - [2,7],[6,3]
 
 but for more vertices, the number grows substantially. (For 16 odd vertices, there would be over 2
-million.)
+million matchings.)
 Thus we need a more efficient algorithm to find the optimal matchings. This package uses the Edmonds
 blossom algorithm.
 
@@ -113,7 +111,6 @@ So we choose the third option. We will need to repeat the edges that give the sh
 
 The duplicate edges now make the graph
 eulerian. [Hierholzer's algorithm](https://en.wikipedia.org/wiki/Eulerian_path#Hierholzer's_algorithm)
-is used to find the order of the eulerian path.
-The order in which to travel the edges is in red.
+is used to find the order in which to travel each edge, shown by the numbers in red.
 
 ![eulerian.png](eulerian.png)
