@@ -8,9 +8,9 @@
 import 'package:chinese_postman/chinese_postman.dart';
 
 void main() {
+  
   Postman p = Postman();
-
-
+  
   // Repeating entries in the graph will not add duplicate edges. 
   // If the original graph contains duplicate edges,
   // add new vertices with a distance of 0 from other vertices.
