@@ -2,9 +2,8 @@
 
 #### How to travel through each edge and return to the start in the shortest way possible
 
-![img.png](img.png)
+![img.png](https://raw.githubusercontent.com/MadSimple/ChinesePostman/main/img.png)
 
-Add ```chinese_postman: ^0.1.0``` to pubspec.yaml
 ```dart
 import 'package:chinese_postman/chinese_postman.dart';
 
@@ -54,9 +53,9 @@ to solve the problem is below.
 
 Firstly, the graph must be connected (there should be a path between any 2 vertices).
 
-![disconnected.png](disconnected.png)
+![disconnected.png](https://raw.githubusercontent.com/MadSimple/ChinesePostman/main/disconnected.png)
 
-![connected.png](connected.png)
+![connected.png](https://raw.githubusercontent.com/MadSimple/ChinesePostman/main/connected.png)
 
 The first thing to do is count how many edges meet at each vertex (called the "degree" of the
 vertex).
@@ -114,4 +113,4 @@ The duplicate edges now make the graph
 eulerian. [Hierholzer's algorithm](https://en.wikipedia.org/wiki/Eulerian_path#Hierholzer's_algorithm)
 is used to find the order in which to travel each edge, shown by the numbers in red.
 
-![eulerian.png](eulerian.png)
+![eulerian.png](https://raw.githubusercontent.com/MadSimple/ChinesePostman/main/eulerian.png)
