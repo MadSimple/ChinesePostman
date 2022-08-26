@@ -35,14 +35,15 @@ void main() {
 
 ```
 
-This outputs the following:
+This outputs a path like the following:
 
 ```dart
 [2, 5, 7, 5, 4, 1, 3, 4, 6, 3, 6, 7, 2, 5, 1, 2]
 total cost: 123.0
 ```
 
-The start/end vertex is 2.
+The start/end vertex is 2. There may be multiple solutions, but there
+will only be one output.
 
 The list above shows the path to traverse each edge and return to vertex 2.
 
