@@ -1,6 +1,5 @@
 library chinese_postman;
 
-
 import 'package:dijkstra/dijkstra.dart';
 import 'dart:core';
 import 'dart:math' as math;
@@ -837,7 +836,7 @@ class Postman {
     return _totalCost;
   }
 
-  List<int> tour(){
+  List<int> tour() {
     return _tour;
   }
 
@@ -880,13 +879,16 @@ class Postman {
       copy.removeAt(copy
           .indexOf(copy.firstWhere((element) => listEquals(element, newEdge))));
 
+
       if (paths[pathsIndex].first == end) {
         paths.add([]);
         for (List<int> e in edges) {
           if (paths[pathsIndex].contains(e[0])) {
             start = e[0];
+            break;
           } else if (paths[pathsIndex].contains(e[1])) {
             start = e[1];
+            break;
           }
         }
         pathsIndex++;
@@ -1048,6 +1050,8 @@ class Postman {
       }
     }
 
+    //eulerianCycle uses Hierholzer's algorithm
+    //update the total cost
     List<int> cycle = eulerianCycle(edges);
     for (int v = 0; v < cycle.length - 1; v++) {
       _totalCost += graphCopy[cycle[v]]![cycle[v + 1]]!;
@@ -1055,6 +1059,7 @@ class Postman {
 
     List<int> cycleCopy = [];
     for (int c = 0; c <= cycle.length; c++) {
+      //Since cycle.first == cycle.last, don't count it an extra time
       if (cycle.indexOf(startingVertex) + c == cycle.length) {
         continue;
       }
