@@ -2,7 +2,7 @@
 
 #### How to travel through each edge and return to the start in the shortest way possible
 
-![img.png](https://raw.githubusercontent.com/MadSimple/ChinesePostman/main/img.png)
+![img.png](https://raw.githubusercontent.com/MadSimple/ChinesePostman/refs/heads/main/img.png)
 
 ```dart
 import 'package:chinese_postman/chinese_postman.dart';
