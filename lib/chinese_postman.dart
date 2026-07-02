@@ -1,8 +1,9 @@
 library chinese_postman;
 
-import 'package:dijkstra/dijkstra.dart';
 import 'dart:core';
 import 'dart:math' as math;
+
+import 'package:dijkstra/dijkstra.dart';
 
 const int maxInt = 9999999999999999;
 
@@ -20,6 +21,7 @@ Edmonds blossom algorithm and for testing.
 Postman().postmanTour method alters code to find minimum-weight
 instead of maximum-weight matching.
 */
+
 class Blossom {
   bool checkDelta = false;
   bool checkOptimum = false;
@@ -511,6 +513,7 @@ class Blossom {
   }
 
   void verifyOptimum() {
+    // ignore: unused_local_variable
     int vdualoffset = -1;
     int dualvarminleft = maxInt;
     for (int i = 0; i < nVertex; i++) {
@@ -530,6 +533,7 @@ class Blossom {
       int i = edges[k][0];
       int j = edges[k][1];
       int wt = edges[k][2];
+      // ignore: unused_local_variable
       int s = dualVar[i] + dualVar[j] - 2 * wt;
       List<int> iblossoms = [];
       List<int> jblossoms = [];
@@ -559,6 +563,7 @@ class Blossom {
     for (int b = nVertex; b < 2 * nVertex; b++) {
       if (blossomBase[b] >= 0 && dualVar[b] > 0) {
         for (int i = 1; i < blossomEndps[b].length; i += 2) {
+          // ignore: unused_local_variable
           int p = blossomEndps[b][i];
         }
       }
@@ -606,7 +611,9 @@ class Blossom {
           }
         }
         if (bestEdge[b] != -1) {
+          // ignore: unused_local_variable
           int i = edges[bestEdge[b]][0];
+          // ignore: unused_local_variable
           int j = edges[bestEdge[b]][1];
           if (tbk == -1 || slack(bestEdge[b]) < tbd) {
             tbk = bestEdge[b];
@@ -832,13 +839,9 @@ class Postman {
   double _totalCost = 0;
   List<int> _tour = [];
 
-  double cost() {
-    return _totalCost;
-  }
+  double get cost => _totalCost;
 
-  List<int> tour() {
-    return _tour;
-  }
+  List<int> get tour => _tour;
 
   List<List<int>> flippedWeights(List<List<int>> l) {
     int max = -maxInt;
@@ -879,7 +882,6 @@ class Postman {
       copy.removeAt(copy
           .indexOf(copy.firstWhere((element) => listEquals(element, newEdge))));
 
-
       if (paths[pathsIndex].first == end) {
         paths.add([]);
         for (List<int> e in edges) {
@@ -917,9 +919,10 @@ class Postman {
   }
 
   List<int> postmanTour(Map<int, Map<int, double>> graph,
-      {int startingVertex = 0}) {
+      {required int startingVertex}) {
     _totalCost = 0;
     List<List<int>> edges = [];
+    // ignore: unused_local_variable
     Map<int, int> verticesCount = {};
     List<int> oddVertices = [];
 
@@ -936,7 +939,7 @@ class Postman {
       }
     }
 
-    //make sure each edge is listed twice for Dijkstra package
+    // make sure each edge is listed twice for Dijkstra package
     Map<int, Map<int, double>> graphCopy = Map.from(graph);
     for (int v in graph.keys) {
       for (int v2 in graph[v]!.keys) {
@@ -954,7 +957,7 @@ class Postman {
       startingVertex = graphCopy.keys.first;
     }
 
-    //get list of edges
+    // get list of edges
     for (int v in graph.keys) {
       for (int v2 in graph[v]!.keys) {
         List<int> newEdge = [math.min(v, v2), math.max(v, v2)];
@@ -977,8 +980,8 @@ class Postman {
       }
     }
 
-    //multiply weights by 1000 if number are not large
-    //to keep some precision for numbers with decimals
+    // multiply weights by 1000 if number are not large
+    // to keep some precision for numbers with decimals
     Map<int, Map<int, int>> graphCopyWeighted = {};
     if (maxWeight < 100000) {
       for (int v in graphCopy.keys) {
@@ -1059,7 +1062,7 @@ class Postman {
 
     List<int> cycleCopy = [];
     for (int c = 0; c <= cycle.length; c++) {
-      //Since cycle.first == cycle.last, don't count it an extra time
+      // Since cycle.first == cycle.last, don't count it an extra time
       if (cycle.indexOf(startingVertex) + c == cycle.length) {
         continue;
       }
