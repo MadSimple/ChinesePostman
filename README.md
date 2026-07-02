@@ -1,6 +1,6 @@
 # Dart package to solve the Chinese Postman Problem for undirected, weighted graphs:
 
-#### How to travel through each edge and return to the start in the shortest way possible
+### How to travel through each edge and return to the start in the shortest way possible
 
 ![img.png](https://raw.githubusercontent.com/MadSimple/ChinesePostman/refs/heads/main/img.png)
 
