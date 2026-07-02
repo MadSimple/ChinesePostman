@@ -30,7 +30,7 @@ void main() {
   List<int> tour = p.postmanTour(graph, startingVertex: 2);
 
   print(tour);
-  print('total cost: ${p.cost()}');
+  print('total cost: ${p.cost}');
 }
 
 ```
